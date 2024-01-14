@@ -11,7 +11,7 @@ import { kidsProducts, menproducts, womenProducts } from '../Data'
 const Home = () => {
   return (
     <div className="flex flex-col gap-20 p-4">
-      <div className="flex gap-8 ">
+      <div className="lg:flex gap-8 ">
         <div className="flex-1 w-50 relative">
           <img src={leftimage} alt="" />
           <div className="absolute top-0 left-0 flex text-white items-center justify-center w-full h-full">
@@ -19,7 +19,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="w-50 flex-1 w-full grid grid-cols-2 gap-8">
+        <div className="w-50 flex-1 w-full md:grid md:grid-cols-2 gap-8">
           <div className="relative">
             <img src={womensheroimg} alt="" />
             <div className="text-white absolute  top-0 flex-col gap-3 left-0 flex items-center justify-center w-full h-full">
