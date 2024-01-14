@@ -6,7 +6,7 @@ import kidsheroimg from '../images/baner-right-image-03.jpg'
 import Accesoriesheroimg from '../images/baner-right-image-04.jpg'
 import LatestProductWrapper from '../componets/LatestProductWrapper'
 
-import { kidsProducts,menproducts,womenProducts } from '../Data'
+import { kidsProducts, menproducts, womenProducts } from '../Data'
 
 const Home = () => {
   return (
@@ -51,9 +51,8 @@ const Home = () => {
         </div>
       </div>
       <LatestProductWrapper sectionName="Men's" data={menproducts} />
-      <LatestProductWrapper sectionName="Women's" data={womenProducts}/>
+      <LatestProductWrapper sectionName="Women's" data={womenProducts} />
       <LatestProductWrapper sectionName="Kid's" data={kidsProducts} />
-  
     </div>
   )
 }
