@@ -1,15 +1,15 @@
-import React from 'react'
+import React from 'react';
 
 const StarRatigSvg = () => {
   return (
     <div className="">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        fill="none"
+        fill="black"
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="w-6 h-6"
+        className="w-4 h-4"
       >
         <path
           strokeLinecap="round"
@@ -18,7 +18,7 @@ const StarRatigSvg = () => {
         />
       </svg>
     </div>
-  )
-}
+  );
+};
 
-export default StarRatigSvg
+export default StarRatigSvg;

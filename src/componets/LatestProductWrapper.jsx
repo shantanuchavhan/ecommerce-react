@@ -43,7 +43,7 @@ const LatestProductWrapper = ({ sectionName, data, id }) => {
               <div className="flex  justify-between ">
                 <div className="flex flex-col -my-2 gap-1">
                   <h4 className="text-[23px]  font-bold">{product.name}</h4>
-                  <h5 className="text-gray-500 text-[18px] font-medium">
+                  <h5 className="text-gray-400 text-[18px] font-medium">
                     ${product.price}.00
                   </h5>
                 </div>
