@@ -30,7 +30,7 @@ const LatestProductWrapper = ({ sectionName, data, id }) => {
             />
           </svg>
         </div>
-        <div className="flex overflow-x-scroll  h-[460px] w-full  gap-8">
+        <div className="flex lg:overflow-x-scroll  h-[460px] w-full  gap-8">
           {data.map((product) => (
             <div key={product.id} className="flex h-full flex-col gap-4 ">
               <div className="h-[360px]  w-[340px]">
