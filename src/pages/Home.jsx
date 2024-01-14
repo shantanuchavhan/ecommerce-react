@@ -50,9 +50,9 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <LatestProductWrapper sectionName="Men's" data={menproducts} />
-      <LatestProductWrapper sectionName="Women's" data={womenProducts} />
-      <LatestProductWrapper sectionName="Kid's" data={kidsProducts} />
+      <LatestProductWrapper sectionName="Men's" data={menproducts} id="mens" />
+      <LatestProductWrapper sectionName="Women's" data={womenProducts} id="womens" />
+      <LatestProductWrapper sectionName="Kid's" data={kidsProducts} id="kids" />
     </div>
   )
 }
