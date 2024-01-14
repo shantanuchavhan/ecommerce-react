@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header className="flex justify-between items-center px-10 h-20">
       <h1>ClothX</h1>
-      <nav>
+      <nav className='hidden lg:block'>
         <ul className="flex gap-10">
           <li>
             <a href="/" title="Home">
