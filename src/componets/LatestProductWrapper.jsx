@@ -2,7 +2,7 @@ import React from 'react'
 
 import StarRatigSvg from './StarRatigSvg'
 
-const LatestProductWrapper = ({ sectionName, data,id }) => {
+const LatestProductWrapper = ({ sectionName, data, id }) => {
   return (
     <div id={id} className="flex flex-col gap-10 w-full px-6 ">
       <div>
@@ -43,7 +43,9 @@ const LatestProductWrapper = ({ sectionName, data,id }) => {
               <div className="flex  justify-between ">
                 <div className="flex flex-col -my-2 gap-1">
                   <h4 className="text-[23px]  font-bold">{product.name}</h4>
-                  <h5 className="text-gray-500 text-[18px] font-medium">${product.price}.00</h5>
+                  <h5 className="text-gray-500 text-[18px] font-medium">
+                    ${product.price}.00
+                  </h5>
                 </div>
                 <div className="flex gap-1">
                   <StarRatigSvg />

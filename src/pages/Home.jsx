@@ -51,7 +51,11 @@ const Home = () => {
         </div>
       </div>
       <LatestProductWrapper sectionName="Men's" data={menproducts} id="mens" />
-      <LatestProductWrapper sectionName="Women's" data={womenProducts} id="womens" />
+      <LatestProductWrapper
+        sectionName="Women's"
+        data={womenProducts}
+        id="womens"
+      />
       <LatestProductWrapper sectionName="Kid's" data={kidsProducts} id="kids" />
     </div>
   )
