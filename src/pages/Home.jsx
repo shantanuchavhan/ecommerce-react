@@ -16,7 +16,7 @@ const Home = () => {
                 </div>
             </div>
                 
-            <div className='w-50 flex-1 w-full grid grid-cols-2 gap-4'>
+            <div className='w-50 flex-1 w-full grid grid-cols-2 gap-8'>
                 <div className='relative'>
                     <img src={womensheroimg} alt="" />
                     <div className='text-white absolute  top-0 left-0 flex items-center justify-center w-full h-full'>
@@ -44,11 +44,20 @@ const Home = () => {
             </div>
            
         </div>
-        <div>
-            <h1>Men's Latest</h1>
-            <div className='flex'>
+        <div className='flex flex-col gap-6 px-6'>
+            <div>
+                <h1 className='text-[32px]'>Men's Latest</h1>
+                <p className='text-sm text-gray-400'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam asperiores nemo inventore, amet eveniet repudiandae est cumque.</p>
+            </div>
+            <div className='flex  gap-8 relative'>
+                <div className='border -left-6 top-32 absolute p-3 border-black'>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                    </svg>
+                </div>
+
                 <div className='flex flex-col gap-2'>
-                <img src={mensheroimg} alt="" />
+                    <img src={mensheroimg} alt="" />
                     <div className='flex  justify-between'>
                         <div>
                             <h4>Classic Spring</h4>
@@ -128,9 +137,16 @@ const Home = () => {
                     </div>
                 </div>
 
-                </div>
+            </div>
+            <div className='border -right-6 top-32 absolute p-3  border-black'>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+            </div>
             
             </div>
+          
+
         </div>
         <div>
 
