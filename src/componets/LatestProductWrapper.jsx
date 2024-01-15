@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import StarRatigSvg from './StarRatigSvg';
+import like from "../images/heart.png"
+import cart from "../images/shopping-cart.png"
+import view from "../images/eye.png"
+import { Link } from 'react-router-dom';
 
 const LatestProductWrapper = ({ sectionName, id }) => {
   const [cloths, setCloths] = useState();
   useEffect(() => {
     const getData = async () => {
       if (id) {
-        const responce = await fetch(`http://127.0.0.1:8000/api/cloth_products/${id}/`);
+        const responce = await fetch(`http://127.0.0.1:8000/api/categories/${id}/`);
         const data = await responce.json();
         setCloths((old) => data);
       } else {
@@ -74,8 +78,22 @@ const LatestProductWrapper = ({ sectionName, id }) => {
                   alt={product.name}
                 />
                 {hoveredIndex === index && (
-                  <div className="absolute left-10 bottom-10">
-                    This div appears after hover
+                  <div className="absolute  bottom-10 flex gap-3 w-full justify-center">
+                    <Link to={`/product/${product.id}`}>
+                    <div className='bg-white'>
+
+                      <img className='h-12 w-12 p-2' src={view} alt="" />
+                    </div>
+                    </Link>
+                    <div className='bg-white'>
+                        <img className='h-12 w-12 p-2' src={like} alt="" />
+                    </div>
+                    <Link to={`/product/${product.id}`}>
+                    <div className='bg-white'>
+                    <img className='h-12 w-12 p-2' src={cart} alt="" />
+                    </div>
+                    </Link>
+                   
                   </div>
                 )}
               </div>
