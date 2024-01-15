@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div className="bg-black text-white">
       <div className="flex  px-16 w-full ">
-        <div className="md:flex gap-10  py-10 border-b-2 border-gray-300  w-full">
+        <div className="md:flex gap-10 py:6 md:py-8 lg:py-10 border-b-2 border-gray-300  w-full">
           <div className="">shantanuchavhan002@gmail.com</div>
           <div className="flex flex-col gap-3">
             <h1 className="pb-1 font-bold">Shopping Categories</h1>
@@ -13,7 +13,7 @@ const Footer = () => {
             <h1>kid's Shopping</h1>
           </div>
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 sm:pb-3 ">
             <h1 className="pb-1 font-bold">Homepage</h1>
             <h1>About Us </h1>
             <h1>Help</h1>
