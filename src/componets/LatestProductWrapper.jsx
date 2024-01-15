@@ -36,8 +36,7 @@ const LatestProductWrapper = ({ sectionName, id }) => {
 
   return (
     <div id={id} className="flex flex-col gap-10 w-full  md:px-4 lg:px-6  ">
-  
-      <div className='px-2 pt-44 '>
+      <div className="px-2 pt-44 ">
         <h1 className="text-[32px] font-bold">{sectionName} Latest</h1>
         <p className="text-sm text-gray-400 italic">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
