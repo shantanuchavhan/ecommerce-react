@@ -4,8 +4,8 @@ const Footer = () => {
   return (
     <div className="bg-black text-white">
       <div className="flex  px-16 w-full ">
-        <div className="md:flex gap-10 py:6 md:py-8 lg:py-10 border-b-2 border-gray-300  w-full">
-          <div className="">shantanuchavhan002@gmail.com</div>
+        <div className="md:flex gap-10 py:6 md:py-8 lg:py-10 border-b-2 border-gray-300 sm:py-10 sm:text-center  w-full">
+          <div className="pt-3">shantanuchavhan002@gmail.com</div>
           <div className="flex flex-col gap-3 sm:py-4">
             <h1 className="pb-1 font-bold">Shopping Categories</h1>
             <h1>Men,s Shopping </h1>
