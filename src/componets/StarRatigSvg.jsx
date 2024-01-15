@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const StarRatigSvg = () => {
   return (
@@ -18,7 +18,7 @@ const StarRatigSvg = () => {
         />
       </svg>
     </div>
-  );
-};
+  )
+}
 
-export default StarRatigSvg;
+export default StarRatigSvg

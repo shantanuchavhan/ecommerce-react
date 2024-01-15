@@ -6,12 +6,10 @@ import kidsheroimg from '../images/baner-right-image-03.jpg'
 import Accesoriesheroimg from '../images/baner-right-image-04.jpg'
 import LatestProductWrapper from '../componets/LatestProductWrapper'
 
-import { kidsProducts, menproducts, womenProducts } from '../Data'
-
 const Home = () => {
   return (
-    <div className="flex flex-col gap-20 p-4">
-      <div className="lg:flex gap-8 ">
+    <div className="flex flex-col gap-2  p-4 ">
+      <div id='home' className="lg:flex gap-8   ">
         <div className="flex-1 w-50 relative">
           <img src={leftimage} alt="" />
           <div className="absolute top-0 left-0 flex text-white items-center justify-center w-full h-full">
@@ -50,13 +48,13 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <LatestProductWrapper sectionName="Men's" data={menproducts} id="mens" />
-      <LatestProductWrapper
-        sectionName="Women's"
-        data={womenProducts}
-        id="womens"
-      />
-      <LatestProductWrapper sectionName="Kid's" data={kidsProducts} id="kids" />
+      <LatestProductWrapper sectionName="Men's" id="men" />
+      <LatestProductWrapper sectionName="Women's" id="women" />
+      <LatestProductWrapper sectionName="Kid's" id="kids" />
+
+      <div id='contact ' className='h-60' >
+          <h1>Contact</h1>
+      </div>
     </div>
   )
 }

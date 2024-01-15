@@ -1,11 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import StarRatigSvg from './StarRatigSvg'
 
-const LatestProductWrapper = ({ sectionName, data, id }) => {
+const LatestProductWrapper = ({ sectionName, id }) => {
+  const [cloths, setCloths] = useState()
+  useEffect(() => {
+    const getData = async () => {
+      if (id) {
+        const responce = await fetch(
+          `http://127.0.0.1:8000/api/cloth_products/${id}/`
+        )
+        const data = await responce.json()
+        setCloths((old) => data)
+      } else {
+        const responce = await fetch(
+          `http://127.0.0.1:8000/api/cloth-products/`
+        )
+        const data = await responce.json()
+        setCloths((old) => data)
+      }
+    }
+    getData()
+  }, [id])
+
+  const getFirstTwoWords = (text) => {
+    const words = text.split(' ')
+    if (words.length > 4) {
+      return words.slice(0, 3).join(' ')
+    } else {
+      return words
+    }
+  }
+
+  console.log(cloths, 'cloths')
+
   return (
-    <div id={id} className="flex flex-col gap-10 w-full px-6 ">
-      <div>
+    <div id={id} className="flex flex-col gap-10 w-full  md:px-4 lg:px-6  ">
+  
+      <div className='px-2 pt-44 '>
         <h1 className="text-[32px] font-bold">{sectionName} Latest</h1>
         <p className="text-sm text-gray-400 italic">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
@@ -30,19 +62,21 @@ const LatestProductWrapper = ({ sectionName, data, id }) => {
             />
           </svg>
         </div>
-        <div className="flex lg:overflow-x-scroll  h-[460px] w-full  gap-8">
-          {data.map((product) => (
+        <div className="flex overflow-x-scroll  h-[500px] w-full  gap-8">
+          {cloths?.map((product) => (
             <div key={product.id} className="flex h-full flex-col gap-4 ">
               <div className="h-[360px]  w-[340px]">
                 <img
                   className="object-cover  h-full w-full"
-                  src={product.image}
+                  src={`https://res.cloudinary.com/ddw1upvx3/${product.image}`}
                   alt={product.name}
                 />
               </div>
               <div className="flex  justify-between ">
                 <div className="flex flex-col -my-2 gap-1">
-                  <h4 className="text-[23px]  font-bold">{product.name}</h4>
+                  <h4 className="text-[23px]  font-bold">
+                    {getFirstTwoWords(product.name)}..
+                  </h4>
                   <h5 className="text-gray-400 text-[18px] font-medium">
                     ${product.price}.00
                   </h5>
