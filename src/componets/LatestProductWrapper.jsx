@@ -7,20 +7,29 @@ import { Link } from 'react-router-dom';
 
 const LatestProductWrapper = ({ sectionName, id }) => {
   const [cloths, setCloths] = useState();
+  const [loading,setLoading]= useState(false)
   useEffect(() => {
+    setLoading(true)
     const getData = async () => {
       if (id) {
         const responce = await fetch(`http://127.0.0.1:8000/api/categories/${id}/`);
         const data = await responce.json();
         setCloths((old) => data);
+        setLoading(false)
       } else {
         const responce = await fetch(`http://127.0.0.1:8000/api/cloth-products/`);
         const data = await responce.json();
         setCloths((old) => data);
+        setLoading(false)
+        
       }
     };
     getData();
+    
+    
   }, [id]);
+
+  console.log(cloths)
 
   const getFirstTwoWords = (text) => {
     const words = text.split(' ');
@@ -64,7 +73,9 @@ const LatestProductWrapper = ({ sectionName, id }) => {
             <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
           </svg>
         </div>
-        <div className="flex overflow-x-scroll  h-[500px] w-full  gap-8">
+        {
+         ! loading ? (
+          <div className="flex overflow-x-scroll  h-[500px] w-full  gap-8">
           {cloths?.map((product, index) => (
             <div key={product.id} className="flex h-full flex-col gap-4 relative">
               <div
@@ -74,7 +85,7 @@ const LatestProductWrapper = ({ sectionName, id }) => {
               >
                 <img
                   className="object-cover  h-full w-full"
-                  src={`https://res.cloudinary.com/ddw1upvx3/${product.image}`}
+                  src={`https://res.cloudinary.com/ddw1upvx3/${product?.product_images[0]?.image}`}
                   alt={product.name}
                 />
                 {hoveredIndex === index && (
@@ -113,6 +124,10 @@ const LatestProductWrapper = ({ sectionName, id }) => {
             </div>
           ))}
         </div>
+         ) :(
+          <div  className='h-[500px] w-full bg-[#DBDBDBE6] text-[36px] font-bold italic text-white flex items-center justify-center'>loading...</div>
+         )
+        }
         <div className="border -right-6 top-40 absolute p-3  border-black">
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -6,6 +6,7 @@ import Checkout from './pages/Checkout'
 import Product from './pages/Product'
 import Layout from './componets/Layout'
 import ProductDetail from './pages/ProductDetail'
+
 function App() {
   return (
     <div>
@@ -16,7 +17,7 @@ function App() {
             <Route path="blogs" element={<About />} />
             <Route path="checkout" element={<Checkout />} />
             <Route path="product" element={<Product />} />
-            <Route path="/product/:id" component={ProductDetail} />
+            <Route path="product/:id" element={<ProductDetail />} />
           </Route>
         </Routes>
       </BrowserRouter>
