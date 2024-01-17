@@ -11,7 +11,7 @@ const Signin = () => {
     };
   
     return (
-        <div className='flex items-center justify-center max-h-[80vh] max-w-[100vw] md:h-[100vh] md:w-[100vw]'>
+        <div className='flex items-center justify-center h-[100vh] w-[100vw]'>
       <div className="max-w-md mx-auto w-full md:w-[70%] lg:w-[50%]   p-6  bg-black text-white border border-black md:rounded  shadow-md">
         <h2 className="text-2xl font-semibold mb-6">Sign In</h2>
         <label className="block mb-4">
