@@ -125,17 +125,17 @@ const LatestProductWrapper = ({ sectionName, id }) => {
           ))}
         </div>
          ) :(
-          <div  className='h-[500px] w-full bg-[#DBDBDBE6] text-[36px] font-bold italic text-white flex items-center justify-center'>loading...</div>
+          <div  className='h-[500px] w-full bg-[#DBDBDBE6] text-[29px]  md:text-[32px] lg:text-[36px] font-bold italic text-white flex items-center justify-center'>loading...</div>
          )
         }
-        <div className="border -right-6 top-40 absolute p-3  border-black">
+        <div className="border -right-6 top-40 absolute p-2 md:p-3  border-black">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6"
+            className="h-4 w-4 md:w-6 mdh-6"
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
           </svg>

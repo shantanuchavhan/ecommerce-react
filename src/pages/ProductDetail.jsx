@@ -3,13 +3,18 @@ import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import StarRatigSvg from '../componets/StarRatigSvg';
 import SkeletonProductDetail from '../componets/SkeletonProductDetail';
+import { useCart } from '../context/CartContext';
 
 const ProductDetail = () => {
     const { id } = useParams();
+    const { dispatch } = useCart();
+
+    
     const [productDetails, setProductDetails] = useState("");
     const [itemCount, setItemCount]=useState(1)
     const [loading,setLoading]=useState(false)
     const [imageCount, setImageCount]=useState(1)
+    
     useEffect(()=>{
         
         const fetchData=async()=>{
@@ -24,6 +29,11 @@ const ProductDetail = () => {
         fetchData()
         
     },[id])
+
+    const addToCart = (product) => {
+      dispatch({ type: 'ADD_TO_CART', payload: product });
+    };
+
 
     if(loading){
       return(
@@ -116,7 +126,7 @@ const ProductDetail = () => {
           <div className='flex justify-between items-center'>
             <h1 className='text-[#AAAAAA] font-bold text-[20px] italic'>Total:  ${productDetails.price * itemCount}</h1>
             <div className='text-gray-800 border border-gray-800 p-3 cursor-pointer'>
-              <h1 className='font-bold '>Add to cart</h1>
+              <h1 onClick={() => addToCart({...productDetails,itemCount})} className='font-bold '>Add to cart</h1>
             </div>
           </div>
 

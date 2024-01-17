@@ -6,11 +6,17 @@ import Checkout from './pages/Checkout'
 import Product from './pages/Product'
 import Layout from './componets/Layout'
 import ProductDetail from './pages/ProductDetail'
+import Signin from './pages/Signin'
+import Register from './pages/Register'
+import { CartProvider } from './context/CartContext'
+
 
 function App() {
   return (
-    <div>
+    <CartProvider>
+    <div className='overflow-x-hidden'>
       <BrowserRouter>
+      
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
@@ -18,10 +24,13 @@ function App() {
             <Route path="checkout" element={<Checkout />} />
             <Route path="product" element={<Product />} />
             <Route path="product/:id" element={<ProductDetail />} />
+            <Route path="signin" element={<Signin />} />
+            <Route path="register" element={<Register />} />
           </Route>
         </Routes>
       </BrowserRouter>
     </div>
+    </CartProvider>
   )
 }
 
