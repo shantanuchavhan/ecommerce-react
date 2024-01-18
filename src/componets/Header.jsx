@@ -72,13 +72,13 @@ const Header = () => {
       className={`flex justify-between items-center px-4 md:px-6  lg:px-10 h-20 ${isScrolled ? 'bg-white fixed top-0 left-0 z-20 w-screen shadow-md' : ''}`}
     >
       <Link to="/">
-      <div className="flex items-center gap-2 md:gap-3 md:gap-4 pt-2">
+      <div className="flex items-center gap-3 md:gap-4 pt-2">
         <div className="lg:hidden">
           <div className=" h-[3px] md:h-1 w-5  bg-gray-700 my-1"></div>
           <div className=" h-[3px] md:h-1 w-5  bg-gray-700 my-1"></div>
           <div className=" h-[3px] md:h-1 w-5  bg-gray-700 my-1"></div>
         </div>
-        <img src={logo} alt="" className="h-10 w-26 md:h-12 md:w-26 lg:h-14 lg:w-28" srcSet="" />
+        <img src={logo} alt="" className="h-10 w-30 md:h-12 md:w-26 lg:h-14 lg:w-28" srcSet="" />
       </div>
       </Link>
       <nav className="">

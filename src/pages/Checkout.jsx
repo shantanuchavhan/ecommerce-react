@@ -33,7 +33,7 @@ const Checkout = () => {
         </div>
       ):(
         <div className='px-[14%] py-10'>
-          <div className='md:flex md:gap-24 w-full '>
+          <div className='lg:flex lg:gap-24 w-full '>
              
             <img className='flex-1 h-52 w-50' src={emptyimg} alt="" />
             <div className='flex-1 w-50 flex flex-col gap-5'>

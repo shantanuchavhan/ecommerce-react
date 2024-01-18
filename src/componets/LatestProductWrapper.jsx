@@ -68,7 +68,7 @@ const LatestProductWrapper = ({ sectionName, id }) => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-6 h-6"
+            className="w-5 h-5"
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
           </svg>
@@ -88,6 +88,23 @@ const LatestProductWrapper = ({ sectionName, id }) => {
                   src={`https://res.cloudinary.com/ddw1upvx3/${product?.product_images[0]?.image}`}
                   alt={product.name}
                 />
+                <div className=" lg:hidden absolute  bottom-10 flex gap-3 w-full justify-center">
+                    <Link to={`/product/${product.id}`}>
+                    <div className='bg-white'>
+
+                      <img className='h-12 w-12 p-2' src={view} alt="" />
+                    </div>
+                    </Link>
+                    <div className='bg-white'>
+                        <img className='h-12 w-12 p-2' src={like} alt="" />
+                    </div>
+                    <Link to={`/product/${product.id}`}>
+                    <div className='bg-white'>
+                    <img className='h-12 w-12 p-2' src={cart} alt="" />
+                    </div>
+                    </Link>
+                   
+                  </div>
                 {hoveredIndex === index && (
                   <div className="absolute  bottom-10 flex gap-3 w-full justify-center">
                     <Link to={`/product/${product.id}`}>
@@ -135,7 +152,7 @@ const LatestProductWrapper = ({ sectionName, id }) => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="h-4 w-4 md:w-6 mdh-6"
+            className="h-5 w-5 md:w-6 mdh-6"
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
           </svg>
