@@ -21,7 +21,7 @@ const Header = () => {
       if(url){
         navigate(url)
       }
-  },[url])
+  },[url,navigate])
 
   useEffect(() => {
 
