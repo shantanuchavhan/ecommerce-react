@@ -8,11 +8,13 @@ import Layout from './componets/Layout'
 import ProductDetail from './pages/ProductDetail'
 import Signin from './pages/Signin'
 import Register from './pages/Register'
+import Order from './pages/Order'
 import { CartProvider } from './context/CartContext'
-
+import { UrlContextProvider } from './context/UrlContext'
 
 function App() {
   return (
+    <UrlContextProvider>
     <CartProvider>
     <div className='overflow-x-hidden'>
       <BrowserRouter>
@@ -24,6 +26,7 @@ function App() {
             <Route path="checkout" element={<Checkout />} />
             <Route path="product" element={<Product />} />
             <Route path="product/:id" element={<ProductDetail />} />
+            <Route path="orders" element={<Order />} />
             <Route path="signin" element={<Signin />} />
             <Route path="register" element={<Register />} />
           </Route>
@@ -31,6 +34,7 @@ function App() {
       </BrowserRouter>
     </div>
     </CartProvider>
+    </UrlContextProvider>
   )
 }
 

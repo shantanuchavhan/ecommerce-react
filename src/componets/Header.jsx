@@ -6,13 +6,25 @@ import like from '../images/heart.png'
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
+import { useUrlContext } from '../context/UrlContext'
+import { useNavigate } from 'react-router-dom'
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeLinkId, setActiveLinkId] = useState('home')
+  const [isSideBar,setSideBar]=useState(false)
   const location = useLocation();
   const {cartState}=useCart()
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const {url,setUrl}=useUrlContext()
+  const navigate=useNavigate()
+  useEffect(()=>{
+      if(url){
+        navigate(url)
+      }
+  },[url])
 
   useEffect(() => {
+
     const hash = location.hash;
 
     if (hash) {
@@ -32,7 +44,6 @@ const Header = () => {
       setIsScrolled(scrollPosition > 0)
       const sectionIds = ['home', 'men', 'women', 'kids'] // Add more section IDs as needed
       let currentActiveLinkId = ''
-
       for (const id of sectionIds) {
         const section = document.getElementById(id)
         if (section) {
@@ -65,6 +76,17 @@ const Header = () => {
     })
   }
 
+  const handleHover = () => {
+    setHoveredIndex(true);
+  };
+
+  const handleLeave = () => {
+    setHoveredIndex(null);
+  };
+
+
+
+  
   
 
   return (
@@ -72,7 +94,7 @@ const Header = () => {
       className={`flex justify-between items-center px-4 md:px-6  lg:px-10 h-20 ${isScrolled ? 'bg-white fixed top-0 left-0 z-20 w-screen shadow-md' : ''}`}
     >
       <Link to="/">
-      <div className="flex items-center gap-3 md:gap-4 pt-2">
+      <div className="flex items-center gap-3 md:gap-4 pt-2" onClick={()=>setSideBar((old)=>!old)}>
         <div className="lg:hidden">
           <div className=" h-[3px] md:h-1 w-5  bg-gray-700 my-1"></div>
           <div className=" h-[3px] md:h-1 w-5  bg-gray-700 my-1"></div>
@@ -80,6 +102,39 @@ const Header = () => {
         </div>
         <img src={logo} alt="" className="h-10 w-30 md:h-12 md:w-26 lg:h-14 lg:w-28" srcSet="" />
       </div>
+      {
+        isSideBar &&
+        (
+          <div className='absolute top-0 h-screen w-screen z-30 bg-white'>
+              <div className="flex items-center gap-3 md:gap-4 pt-2" onClick={()=>setSideBar((old)=>!old)}>
+          <div className="lg:hidden">
+            <div className=" h-[3px] md:h-1 w-5  bg-gray-700 my-1"></div>
+            <div className=" h-[3px] md:h-1 w-5  bg-gray-700 my-1"></div>
+            <div className=" h-[3px] md:h-1 w-5  bg-gray-700 my-1"></div>
+          </div>
+          
+           </div>
+           <div  className='flex items-center justify-center h-screen w-screen flex-col gap-10'>
+                <div onClick={()=>{
+            setUrl("/#men")
+            setSideBar(false)
+            
+          }}>Men,s</div>
+                <div onClick={()=>{
+            setUrl("/#women")
+            setSideBar(false)
+            
+          }}>Women,s</div>
+                <div onClick={()=>{
+            setUrl("/#kids")
+            setSideBar(false)
+            
+          }}>Kid,s</div>
+           </div>
+
+          </div>
+        )
+      }
       </Link>
       <nav className="">
         <div className="flex gap-10">
@@ -138,11 +193,30 @@ const Header = () => {
                 <img  className="h-5 w-5 md:h-6 md:w-5 lg:w-6 lg:w-6" src={like} alt="" />
               </Link>
             </li>
-            <li>
-              <Link to="/account" title="User Account">
+            <li className='relative flex flex-col items-center '
+              onMouseEnter={() => handleHover()}
+              
+            >
+              <div  
+                
+              >
                 <img className="h-5 w-5  md:h-6 md:w-5 lg:w-6 lg:w-6 " src={account} alt="" />
-              </Link>
+              </div>
+              
+              {hoveredIndex ? (
+                <div className='flex flex-col absolute top-7 border text-center text-sm z-30 bg-white shadow-lg' onMouseLeave={handleLeave}>
+                  <Link className='p-2 border' to="/orders">Orders</Link>
+                  <Link className='p-2 border' to="/signin">Signin</Link>
+                  <Link className='p-2 border' to="/register">Register</Link>
+
+                </div>
+              ):(
+                <div></div>
+              )
+              }
+            
             </li>
+            
           </ul>
         </div>
       </nav>
