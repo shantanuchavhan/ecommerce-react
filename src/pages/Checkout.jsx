@@ -25,68 +25,82 @@ const Checkout = () => {
   }
 
   return (
-    <div className='px-32 '>
+    <div className="px-32 ">
       {cartState.items.length > 0 ? (
         <div className="flex justify-between gap-4 p-4 min-h-[60vh]  border-t">
-          <ul className=' w-[70%]'>
-            <h1 className='flex justify-between py-3'>
-              <div className='flex gap-2 items-center text-sm'>
-                <h1 className='border  h-[15px] w-[15px] rounded-[4px] border-gray-700'></h1>
-                <h1 className='font-bold text-gray-700'>1/1 ITEMS SELECTED </h1>
+          <ul className=" w-[70%]">
+            <h1 className="flex justify-between py-3">
+              <div className="flex gap-2 items-center text-sm">
+                <h1 className="border  h-[15px] w-[15px] rounded-[4px] border-gray-700"></h1>
+                <h1 className="font-bold text-gray-700">1/1 ITEMS SELECTED </h1>
               </div>
-              <button onClick={clearCart} className='text-sm text-gray-500'>REMOVE ALL</button>
+              <button onClick={clearCart} className="text-sm text-gray-500">
+                REMOVE ALL
+              </button>
             </h1>
-            <div className='flex flex-col gap-4'>
-            {cartState.items.map((item) => (
-              <li
-                key={item.id}
-                className="flex gap-3 py-2 px-2 rounded-lg border border-red-300 relative"
-              >
-                <div className='relative'>
-                <h1 className='absolute left-[4px] top-[4px] rounded-[2px] border border-gray-600 h-[12px] bg-white w-[12px]'></h1>
-                <img
-                  className="object-cover  h-[100px] w-[100px] rounded "
-                  src={`https://res.cloudinary.com/ddw1upvx3/${item?.product_images[0]?.image}`}
-                  alt={item.name}
-                />
-                </div>
-                <div>
-                  <h1 className='text-sm w-[80%]'>{getFirstFiveWords(item.name)}...</h1>
-                  <h1 className='text-sm font-bold'>${item.price}</h1>
-                </div>
-                <button className='text-[22px] absolute top-[1px] right-2' onClick={() => removeFromCart(item.id)}>X</button>
-              </li>
-            ))}
+            <div className="flex flex-col gap-4">
+              {cartState.items.map((item) => (
+                <li
+                  key={item.id}
+                  className="flex gap-3 py-2 px-2 rounded-lg border border-red-300 relative"
+                >
+                  <div className="relative">
+                    <h1 className="absolute left-[4px] top-[4px] rounded-[2px] border border-gray-600 h-[12px] bg-white w-[12px]"></h1>
+                    <img
+                      className="object-cover  h-[100px] w-[100px] rounded "
+                      src={`https://res.cloudinary.com/ddw1upvx3/${item?.product_images[0]?.image}`}
+                      alt={item.name}
+                    />
+                  </div>
+                  <div>
+                    <h1 className="text-sm w-[80%]">
+                      {getFirstFiveWords(item.name)}...
+                    </h1>
+                    <h1 className="text-sm font-bold">${item.price}</h1>
+                  </div>
+                  <button
+                    className="text-[22px] absolute top-[1px] right-2"
+                    onClick={() => removeFromCart(item.id)}
+                  >
+                    X
+                  </button>
+                </li>
+              ))}
             </div>
           </ul>
 
-          <div className='w-[40%]     border-l flex flex-col  min-h-[50vh] justify-between  pl-4'>
+          <div className="w-[40%]     border-l flex flex-col  min-h-[50vh] justify-between  pl-4">
             <div>
-              <div className='flex flex-col gap-2'>
+              <div className="flex flex-col gap-2">
                 <h1>Price Details(1item)</h1>
-                <div className='flex flex-col gap-[2px] text-sm text-gray-600'>
-                <div className='flex justify-between'>
-                  <h1>Total MRP</h1>
-                  <h1>400</h1>
-                </div>
-                <div className='flex justify-between'>
-                  <h1>Platform Fee</h1>
-                  <h1 className='text-green-300 text-sm'>FREE</h1>
-                </div>
-                <div className='flex justify-between'>
-                  <h1>Shiping Fee</h1>
-                  <h1 className='text-green-300 text-sm'>FREE</h1>
-                </div>
+                <div className="flex flex-col gap-[2px] text-sm text-gray-600">
+                  <div className="flex justify-between">
+                    <h1>Total MRP</h1>
+                    <h1>400</h1>
+                  </div>
+                  <div className="flex justify-between">
+                    <h1>Platform Fee</h1>
+                    <h1 className="text-green-300 text-sm">FREE</h1>
+                  </div>
+                  <div className="flex justify-between">
+                    <h1>Shiping Fee</h1>
+                    <h1 className="text-green-300 text-sm">FREE</h1>
+                  </div>
                 </div>
               </div>
             </div>
-            
-            <div className='flex flex-col gap-2'>
-              <div className='flex justify-between text-sm font-bold text-gray-700'>
+
+            <div className="flex flex-col gap-2">
+              <div className="flex justify-between text-sm font-bold text-gray-700">
                 <h1>Total Amount:</h1>
-                <h1>Rs. {cartState.items.reduce((acc, item) => acc + item.price, 0)}</h1>
+                <h1>
+                  Rs.{' '}
+                  {cartState.items.reduce((acc, item) => acc + item.price, 0)}
+                </h1>
               </div>
-              <button className='bg-red-300 w-full py-2 text-white'>Place Order</button>
+              <button className="bg-red-300 w-full py-2 text-white">
+                Place Order
+              </button>
             </div>
           </div>
         </div>
