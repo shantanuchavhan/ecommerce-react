@@ -31,7 +31,7 @@ const Checkout = () => {
           <ul className=" w-[70%]">
             <h1 className="flex justify-between py-3">
               <div className="flex gap-2 items-center text-sm">
-                <h1 className="border  h-[15px] w-[15px] rounded-[4px] border-gray-700"></h1>
+                <div className="border  h-[15px] w-[15px] rounded-[4px] border-gray-700"></div>
                 <h1 className="font-bold text-gray-700">1/1 ITEMS SELECTED </h1>
               </div>
               <button onClick={clearCart} className="text-sm text-gray-500">
@@ -45,7 +45,7 @@ const Checkout = () => {
                   className="flex gap-3 py-2 px-2 rounded-lg border border-red-300 relative"
                 >
                   <div className="relative">
-                    <h1 className="absolute left-[4px] top-[4px] rounded-[2px] border border-gray-600 h-[12px] bg-white w-[12px]"></h1>
+                    <div className="absolute left-[4px] top-[4px] rounded-[2px] border border-gray-600 h-[12px] bg-white w-[12px]"></div>
                     <img
                       className="object-cover  h-[100px] w-[100px] rounded "
                       src={`https://res.cloudinary.com/ddw1upvx3/${item?.product_images[0]?.image}`}
