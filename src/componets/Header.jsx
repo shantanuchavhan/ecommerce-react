@@ -3,8 +3,9 @@ import logo from '../images/logo-color.png'
 import cart from '../images/trolley.png'
 import account from '../images/avatar.png'
 import like from '../images/heart.png'
-import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom';
+
 import { useCart } from '../context/CartContext'
 import { useUrlContext } from '../context/UrlContext'
 import { useNavigate } from 'react-router-dom'
@@ -17,6 +18,7 @@ const Header = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const {url,setUrl}=useUrlContext()
   const navigate=useNavigate()
+
   useEffect(()=>{
       if(url){
         navigate(url)
@@ -106,21 +108,21 @@ const Header = () => {
         isSideBar &&
         (
           <div className='absolute top-0 h-screen w-screen z-30 bg-white'>
-              <div className="flex items-center gap-3 md:gap-4 pt-2" onClick={()=>setSideBar((old)=>!old)}>
-          <div className="lg:hidden">
+              <div className="flex items-center gap-3 md:gap-4 pt-2">
+          <div className="lg:hidden fixed top-3 left-3 z-20" onClick={()=>setSideBar((old)=>!old)}>
             <div className=" h-[3px] md:h-1 w-5  bg-gray-700 my-1"></div>
             <div className=" h-[3px] md:h-1 w-5  bg-gray-700 my-1"></div>
             <div className=" h-[3px] md:h-1 w-5  bg-gray-700 my-1"></div>
           </div>
           
            </div>
-           <div  className='flex items-center justify-center h-screen w-screen flex-col gap-10'>
-                <div onClick={()=>{
+           <div  className='absolute top-0 left-0 flex items-center justify-center h-screen w-screen flex-col gap-10'>
+                <div className='text-[22px] italic font-bold' onClick={()=>{
             setUrl("/#men")
             setSideBar(false)
             
           }}>Men,s</div>
-                <div onClick={()=>{
+                <div className='text-[22px] italic font-bold' onClick={()=>{
             setUrl("/#women")
             setSideBar(false)
             
@@ -129,7 +131,7 @@ const Header = () => {
             setUrl("/#kids")
             setSideBar(false)
             
-          }}>Kid,s</div>
+          }} className='text-[22px] italic font-bold'>Kid,s</div>
            </div>
 
           </div>
@@ -155,7 +157,7 @@ const Header = () => {
                 className={`font-bold ${activeLinkId === 'men' ? 'text-gray-500' : 'text-black'}  hover:text-blue-500 `}
                 href="/#men"
                 title="Mens"
-                onClick={() => handleLinkClick('men')}
+                
               >
                 Men's
               </a>
@@ -169,7 +171,7 @@ const Header = () => {
                 Women's
               </a>
             </li>
-            <li onClick={() => setActiveLinkId((old) => 'kids')}>
+            <li >
               <a
                 className={`font-bold ${activeLinkId === 'kids' ? 'text-gray-500' : 'text-black'}  hover:text-blue-500 `}
                 href="/#kids"

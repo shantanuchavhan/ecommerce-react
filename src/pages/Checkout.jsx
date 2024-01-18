@@ -15,12 +15,22 @@ const Checkout = () => {
     dispatch({ type: 'CLEAR_CART' });
   };
 
+  const getFirstThreeWords = (text) => {
+    const words = text.split(' ');
+    if (words.length > 4) {
+      return words.slice(0, 3).join(' ');
+    } else {
+      return words;
+    }
+  };
+
   return (
     <div>
       
       <ul>
         {cartState.items.map(item => (
           <li key={item.id}>
+            <h1>{getFirstThreeWords(item.name)}...</h1>
             {item.name} - ${item.price}
             <button onClick={() => removeFromCart(item.id)}>Remove</button>
           </li>
