@@ -6,6 +6,7 @@ import kidsheroimg from '../images/baner-right-image-03.jpg'
 import Accesoriesheroimg from '../images/baner-right-image-04.jpg'
 import LatestProductWrapper from '../componets/LatestProductWrapper'
 import Contact from '../componets/Contact'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
@@ -14,7 +15,7 @@ const Home = () => {
         <div className="flex-1  lg:w-50 pb-10  lg:pb-0  h-[300px]  lg:h-full relative">
           <img className="object-cover w-full  h-full" src={leftimage} alt="" />
           <div className="absolute top-0 left-0 flex text-white items-center justify-center w-full h-full">
-            <h1>Hire me</h1>
+            <Link to='/#contact' className='border p-3'>Hire me</Link>
           </div>
         </div>
 
@@ -69,7 +70,7 @@ const Home = () => {
       <LatestProductWrapper sectionName="Women's" id="women" />
       <LatestProductWrapper sectionName="Kid's" id="kids" />
 
-      <div id="contact " className="pt-24 pb-10">
+      <div id="contact" className="pt-40 pb-10">
         <Contact />
       </div>
     </div>
