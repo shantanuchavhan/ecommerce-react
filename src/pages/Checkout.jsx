@@ -29,15 +29,11 @@ const Checkout = () => {
     }
   }
 
-  
   const totalAmount = selectedItem?.reduce((total, item) => {
-    const itemPrice = parseFloat(item.price); // Convert the price to a number
-    const itemTotal = itemPrice * item.itemCount;
-    return total + itemTotal;
-  }, 0);
-  
- 
-  
+    const itemPrice = parseFloat(item.price) // Convert the price to a number
+    const itemTotal = itemPrice * item.itemCount
+    return total + itemTotal
+  }, 0)
 
   return (
     <div className="px-4 md:px-20 lg:px-32 py-4 md:py-6 md:py-20 lg:py-22">
@@ -116,7 +112,7 @@ const Checkout = () => {
                           />
                         </svg>
                       </div>
-                    ) : ( 
+                    ) : (
                       <div
                         className="absolute left-[4px] overflow-hidden top-[4px] rounded-[2px] border border-gray-600 h-[12px] bg-white w-[12px]"
                         onClick={() => {
@@ -138,7 +134,6 @@ const Checkout = () => {
                     </h1>
                     <h1 className="text-sm font-bold">${item.price} </h1>
                     <h2>Qty.{item.itemCount}</h2>
-
                   </div>
                   <button
                     className="text-[22px] absolute top-[1px] right-2"
@@ -151,7 +146,9 @@ const Checkout = () => {
             </div>
           </ul>
 
-          <div className={`w-full md:w-[40%]   pt-3   md:pt-0 ${window.innerWidth >= 768 ? '' : 'border-t'}  md:border-l flex flex-col  min-h-[50vh] justify-between  pl-4`}>
+          <div
+            className={`w-full md:w-[40%]   pt-3   md:pt-0 ${window.innerWidth >= 768 ? '' : 'border-t'}  md:border-l flex flex-col  min-h-[50vh] justify-between  pl-4`}
+          >
             <div>
               <div className="flex flex-col gap-2">
                 <h1>Price Details(1item)</h1>
@@ -175,10 +172,7 @@ const Checkout = () => {
             <div className="flex flex-col gap-2">
               <div className="flex justify-between text-sm font-bold text-gray-700">
                 <h1>Total Amount:</h1>
-                <h1>
-                  Rs.{' '}
-                  {totalAmount}
-                </h1>
+                <h1>Rs. {totalAmount}</h1>
               </div>
               <button className="bg-red-300 w-full py-2 text-white">
                 Place Order

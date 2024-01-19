@@ -70,7 +70,7 @@ const Home = () => {
       <LatestProductWrapper sectionName="Kid's" id="kids" />
 
       <div id="contact " className="pt-24 pb-10">
-        <Contact/>
+        <Contact />
       </div>
     </div>
   )

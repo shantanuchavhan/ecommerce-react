@@ -30,15 +30,12 @@ const ProductDetail = () => {
     fetchData()
   }, [id])
 
-  
-
   const notify = () => toast.success('Added to cart')
 
   const addToCart = (product) => {
-    dispatch({ type: 'ADD_TO_CART', payload: {...product,itemCount }});
-    notify();
-  };
-  
+    dispatch({ type: 'ADD_TO_CART', payload: { ...product, itemCount } })
+    notify()
+  }
 
   if (loading) {
     return <SkeletonProductDetail />
@@ -173,7 +170,7 @@ const ProductDetail = () => {
             </h1>
             <div className="text-gray-800 border border-gray-800 p-3 cursor-pointer">
               <h1
-                onClick={()=>addToCart(productDetails)}
+                onClick={() => addToCart(productDetails)}
                 className="font-bold "
               >
                 Add to cart
