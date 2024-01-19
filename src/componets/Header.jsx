@@ -211,6 +211,7 @@ const Header = () => {
             <li
               className="relative flex flex-col items-center "
               onMouseEnter={() => handleHover()}
+              onMouseLeave={handleLeave}
             >
               <div>
                 <img
@@ -223,7 +224,7 @@ const Header = () => {
               {hoveredIndex ? (
                 <div
                   className="flex flex-col absolute top-7 border text-center text-sm z-30 bg-white shadow-lg"
-                  onMouseLeave={handleLeave}
+                  
                 >
                   <Link className="p-2 border" to="/orders">
                     Orders
