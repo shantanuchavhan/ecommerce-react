@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 
 import { useCart } from '../context/CartContext'
-import { useUrlContext } from '../context/UrlContext'
+
 import { useNavigate } from 'react-router-dom'
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -16,12 +16,13 @@ const Header = () => {
   const location = useLocation()
   const { cartState } = useCart()
   const [hoveredIndex, setHoveredIndex] = useState(null)
-  const { url, setUrl } = useUrlContext()
+  const [ url, setUrl ] = useState()
   const navigate = useNavigate()
 
   useEffect(() => {
     if (url) {
       navigate(url)
+      setUrl("")
     }
   }, [url, navigate])
 
@@ -116,33 +117,28 @@ const Header = () => {
               </div>
             </div>
             <div className="absolute top-0 left-0 flex items-center justify-center h-screen w-screen flex-col gap-10">
-              <div
-                className="text-[22px] italic font-bold"
-                onClick={() => {
-                  setUrl('/#men')
-                  setSideBar(false)
-                }}
-              >
-                Men,s
-              </div>
-              <div
-                className="text-[22px] italic font-bold"
-                onClick={() => {
-                  setUrl('/#women')
-                  setSideBar(false)
-                }}
-              >
-                Women,s
-              </div>
-              <div
-                onClick={() => {
-                  setUrl('/#kids')
-                  setSideBar(false)
-                }}
-                className="text-[22px] italic font-bold"
-              >
-                Kid,s
-              </div>
+            <Link
+  className="text-[22px] italic font-bold"
+  to="/#men"
+  onClick={() => setSideBar(false)}
+>
+  Men's
+</Link>
+<Link
+  className="text-[22px] italic font-bold"
+  to="/#women"
+  onClick={() => setSideBar(false)}
+>
+  Women's
+</Link>
+<Link
+  className="text-[22px] italic font-bold"
+  to="/#kids"
+  onClick={() => setSideBar(false)}
+>
+  Kid's
+</Link>
+
             </div>
           </div>
         )}

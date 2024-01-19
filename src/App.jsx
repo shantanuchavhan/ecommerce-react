@@ -10,11 +10,11 @@ import Signin from './pages/Signin'
 import Register from './pages/Register'
 import Order from './pages/Order'
 import { CartProvider } from './context/CartContext'
-import { UrlContextProvider } from './context/UrlContext'
+
 
 function App() {
   return (
-    <UrlContextProvider>
+
       <CartProvider>
         <div className="overflow-x-hidden">
           <BrowserRouter>
@@ -33,7 +33,7 @@ function App() {
           </BrowserRouter>
         </div>
       </CartProvider>
-    </UrlContextProvider>
+
   )
 }
 
