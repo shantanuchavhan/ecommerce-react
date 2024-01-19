@@ -5,6 +5,8 @@ import StarRatigSvg from '../componets/StarRatigSvg'
 import SkeletonProductDetail from '../componets/SkeletonProductDetail'
 import { useCart } from '../context/CartContext'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const ProductDetail = () => {
   const { id } = useParams()
   const { dispatch } = useCart()
@@ -32,16 +34,19 @@ const ProductDetail = () => {
     dispatch({ type: 'ADD_TO_CART', payload: product })
   }
 
+  const notify = () => toast.success('Added to cart');
+
   if (loading) {
     return <SkeletonProductDetail />
   } else {
     return (
-      <div className="flex gap-8 px-32 py-10">
-        <div className="flex flex-col gap-8">
+      <div className="md:flex gap-8 px-8 py-3 md:px-24 md:py-6 lg:px-32 lg:py-10">
+        <ToastContainer position="top-right" />
+        <div className="flex pb-8 md:pb-0 md:flex-col gap-3 w-full md:gap-8 ">
           {productDetails?.product_images?.length > 0 && (
-            <div className="min-h-[300px] min-w-[260px] ">
+            <div className="w-full md:min-h-[300px] md:min-w-[260px] ">
               <img
-                className="object-cover  h-full w-full"
+                className="object-cover   h-[180px] w-full md:h-full  md:w-full"
                 src={`https://res.cloudinary.com/ddw1upvx3/${productDetails.product_images[0].image}`}
                 alt="Product"
               />
@@ -71,9 +76,9 @@ const ProductDetail = () => {
                   </svg>
                 </div>
               )}
-              <div className="min-h-[300px] min-w-[260px] ">
+              <div className="w-full h-full md:min-h-[300px] md:min-w-[260px] ">
                 <img
-                  className="object-cover  h-full w-full"
+                  className=" object-cover   h-[180] w-full md:h-full  md:w-full"
                   src={`https://res.cloudinary.com/ddw1upvx3/${productDetails?.product_images[imageCount].image}`}
                   alt="Product"
                 />
@@ -103,13 +108,13 @@ const ProductDetail = () => {
           )}
         </div>
 
-        <div className="flex flex-col gap-7">
+        <div className="flex flex-col pb-8 md:pb-0 gap-7">
           <div className="flex items-start">
             <div className="flex flex-col gap-2">
-              <h1 className="font-bold text-[28px] text-gray-700">
+              <h1 className="font-bold text-[20px]  md:text-[24px] lg:text-[28px] text-gray-700">
                 {productDetails?.name}
               </h1>
-              <h2 className="text-[#AAAAAD] font-bold">
+              <h2 className="text-[#AAAAAD] font-bold text-[20px]  md:text-[24px] lg:text-[28px]">
                 ${productDetails.price}.00
               </h2>
             </div>
@@ -164,7 +169,11 @@ const ProductDetail = () => {
             </h1>
             <div className="text-gray-800 border border-gray-800 p-3 cursor-pointer">
               <h1
-                onClick={() => addToCart({ ...productDetails, itemCount })}
+            
+                onClick={() => {
+                  addToCart({ ...productDetails, itemCount })
+                  notify()
+                }}
                 className="font-bold "
               >
                 Add to cart

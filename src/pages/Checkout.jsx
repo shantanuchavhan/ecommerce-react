@@ -3,8 +3,12 @@ import { useCart } from '../context/CartContext'
 import emptyimg from '../images/kettle-desaturated._CB424694257_.svg'
 import { Link } from 'react-router-dom'
 
+
+
 const Checkout = () => {
   const { cartState, dispatch } = useCart()
+  
+
   console.log(cartState, 'cartState from cart')
 
   const removeFromCart = (productId) => {
@@ -26,6 +30,7 @@ const Checkout = () => {
 
   return (
     <div className="px-10 md:px-20 lg:px-32 py-10 md:py-20 lg:py-32 ">
+      
       {cartState.items.length > 0 ? (
         <div className="flex justify-between gap-4 p-4 min-h-[60vh]  border-t">
           <ul className=" w-[70%]">
@@ -103,6 +108,7 @@ const Checkout = () => {
               </button>
             </div>
           </div>
+          
         </div>
       ) : (
         <div className="lg:px-10 lg:py-10">
