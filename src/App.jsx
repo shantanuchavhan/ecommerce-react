@@ -11,29 +11,26 @@ import Register from './pages/Register'
 import Order from './pages/Order'
 import { CartProvider } from './context/CartContext'
 
-
 function App() {
   return (
-
-      <CartProvider>
-        <div className="overflow-x-hidden">
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Layout />}>
-                <Route index element={<Home />} />
-                <Route path="blogs" element={<About />} />
-                <Route path="checkout" element={<Checkout />} />
-                <Route path="product" element={<Product />} />
-                <Route path="product/:id" element={<ProductDetail />} />
-                <Route path="orders" element={<Order />} />
-                <Route path="signin" element={<Signin />} />
-                <Route path="register" element={<Register />} />
-              </Route>
-            </Routes>
-          </BrowserRouter>
-        </div>
-      </CartProvider>
-
+    <CartProvider>
+      <div className="overflow-x-hidden">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="blogs" element={<About />} />
+              <Route path="checkout" element={<Checkout />} />
+              <Route path="product" element={<Product />} />
+              <Route path="product/:id" element={<ProductDetail />} />
+              <Route path="orders" element={<Order />} />
+              <Route path="signin" element={<Signin />} />
+              <Route path="register" element={<Register />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </CartProvider>
   )
 }
 

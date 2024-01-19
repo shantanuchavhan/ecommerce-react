@@ -16,15 +16,8 @@ const Header = () => {
   const location = useLocation()
   const { cartState } = useCart()
   const [hoveredIndex, setHoveredIndex] = useState(null)
-  const [ url, setUrl ] = useState()
+  const [url, setUrl] = useState()
   const navigate = useNavigate()
-
-  useEffect(() => {
-    if (url) {
-      navigate(url)
-      setUrl("")
-    }
-  }, [url, navigate])
 
   useEffect(() => {
     const hash = location.hash
@@ -90,23 +83,25 @@ const Header = () => {
     <header
       className={`flex justify-between items-center px-4 md:px-6  lg:px-10 h-20 ${isScrolled ? 'bg-white fixed top-0 left-0 z-20 w-screen shadow-md' : ''}`}
     >
-      <Link to="/">
+      <div>
         <div className="flex items-center gap-3 md:gap-4 pt-2">
           <div className="lg:hidden" onClick={() => setSideBar((old) => !old)}>
             <div className=" h-[3px] md:h-1 w-5  bg-gray-700 my-1"></div>
             <div className=" h-[3px] md:h-1 w-5  bg-gray-700 my-1"></div>
             <div className=" h-[3px] md:h-1 w-5  bg-gray-700 my-1"></div>
           </div>
-          <img
-            src={logo}
-            alt=""
-            className="h-10 w-30 md:h-12 md:w-26 lg:h-14 lg:w-28"
-            srcSet=""
-          />
+          <Link to="/">
+            <img
+              src={logo}
+              alt=""
+              className="h-10 w-30 md:h-12 md:w-26 lg:h-14 lg:w-28"
+              srcSet=""
+            />
+          </Link>
         </div>
         {isSideBar && (
-          <div className="absolute top-0 h-screen w-screen z-30 bg-white">
-            <div className="flex items-center gap-3 md:gap-4 pt-2">
+          <div className="fixed top-0 left-0 h-screen w-screen z-30 bg-white">
+            <div className="flex items-center gap-3 md:gap-4">
               <div
                 className="lg:hidden fixed top-3 left-3 z-20"
                 onClick={() => setSideBar((old) => !old)}
@@ -116,33 +111,38 @@ const Header = () => {
                 <div className=" h-[3px] md:h-1 w-5  bg-gray-700 my-1"></div>
               </div>
             </div>
-            <div className="absolute top-0 left-0 flex items-center justify-center h-screen w-screen flex-col gap-10">
-            <Link
-  className="text-[22px] italic font-bold"
-  to="/#men"
-  onClick={() => setSideBar(false)}
->
-  Men's
-</Link>
-<Link
-  className="text-[22px] italic font-bold"
-  to="/#women"
-  onClick={() => setSideBar(false)}
->
-  Women's
-</Link>
-<Link
-  className="text-[22px] italic font-bold"
-  to="/#kids"
-  onClick={() => setSideBar(false)}
->
-  Kid's
-</Link>
-
+            <div className=" top-0  flex items-center justify-center h-screen w-screen flex-col gap-10">
+              <Link
+                to="/#men"
+                className="text-[22px] italic font-bold"
+                onClick={() => {
+                  setSideBar(false)
+                }}
+              >
+                Men,s
+              </Link>
+              <Link
+                to="/#women"
+                className="text-[22px] italic font-bold"
+                onClick={() => {
+                  setSideBar(false)
+                }}
+              >
+                Women,s
+              </Link>
+              <Link
+                to="/#kids"
+                onClick={() => {
+                  setSideBar(false)
+                }}
+                className="text-[22px] italic font-bold"
+              >
+                Kid,s
+              </Link>
             </div>
           </div>
         )}
-      </Link>
+      </div>
       <nav className="">
         <div className="flex gap-10">
           <div className="hidden lg:block ">
