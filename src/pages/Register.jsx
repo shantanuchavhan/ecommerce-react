@@ -10,7 +10,7 @@ const Register = () => {
   }
 
   return (
-    <div className="flex items-center justify-center h-[100vh] w-[100vw]">
+    <div className="flex items-center justify-center min-h-[70vh] w-[100vw]">
       <div className="max-w-md mx-auto w-full md:w-[70%] lg:w-[50%]   p-6  bg-black text-white border border-black md:rounded  shadow-md">
         <h2 className="text-2xl font-semibold mb-6">Register</h2>
         <label className="block mb-4">

@@ -25,7 +25,7 @@ const Checkout = () => {
   }
 
   return (
-    <div className="px-32 ">
+    <div className="px-10 md:px-20 lg:px-32 py-10 md:py-20 lg:py-32 ">
       {cartState.items.length > 0 ? (
         <div className="flex justify-between gap-4 p-4 min-h-[60vh]  border-t">
           <ul className=" w-[70%]">
@@ -105,7 +105,7 @@ const Checkout = () => {
           </div>
         </div>
       ) : (
-        <div className="px-[14%] py-10">
+        <div className="lg:px-10 lg:py-10">
           <div className="lg:flex lg:gap-24 w-full ">
             <img className="flex-1 h-52 w-50" src={emptyimg} alt="" />
             <div className="flex-1 w-50 flex flex-col gap-5">
