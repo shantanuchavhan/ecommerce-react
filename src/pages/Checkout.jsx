@@ -8,6 +8,7 @@ const Checkout = () => {
   const [selectedItem, setSelectedItem] = useState()
 
   useEffect(() => {
+    console.log(cartState)
     setSelectedItem(cartState.items)
   }, [cartState])
   console.log(selectedItem)
@@ -27,6 +28,16 @@ const Checkout = () => {
       return words
     }
   }
+
+  
+  const totalAmount = selectedItem?.reduce((total, item) => {
+    const itemPrice = parseFloat(item.price); // Convert the price to a number
+    const itemTotal = itemPrice * item.itemCount;
+    return total + itemTotal;
+  }, 0);
+  
+ 
+  
 
   return (
     <div className="px-4 md:px-20 lg:px-32 py-4 md:py-6 md:py-20 lg:py-22">
@@ -105,7 +116,7 @@ const Checkout = () => {
                           />
                         </svg>
                       </div>
-                    ) : (
+                    ) : ( 
                       <div
                         className="absolute left-[4px] overflow-hidden top-[4px] rounded-[2px] border border-gray-600 h-[12px] bg-white w-[12px]"
                         onClick={() => {
@@ -118,14 +129,16 @@ const Checkout = () => {
                     <img
                       className="object-cover  h-[100px] w-[100px] rounded "
                       src={`https://res.cloudinary.com/ddw1upvx3/${item?.product_images[0]?.image}`}
-                      alt={item.name}
+                      alt={item?.name}
                     />
                   </div>
                   <div>
                     <h1 className="text-sm w-[80%]">
                       {getFirstFiveWords(item.name)}...
                     </h1>
-                    <h1 className="text-sm font-bold">${item.price}</h1>
+                    <h1 className="text-sm font-bold">${item.price} </h1>
+                    <h2>Qty.{item.itemCount}</h2>
+
                   </div>
                   <button
                     className="text-[22px] absolute top-[1px] right-2"
@@ -145,7 +158,7 @@ const Checkout = () => {
                 <div className="flex flex-col gap-[2px] text-sm text-gray-600">
                   <div className="flex justify-between">
                     <h1>Total MRP</h1>
-                    <h1>400xz</h1>
+                    <h1>{totalAmount}</h1>
                   </div>
                   <div className="flex justify-between">
                     <h1>Platform Fee</h1>
@@ -164,7 +177,7 @@ const Checkout = () => {
                 <h1>Total Amount:</h1>
                 <h1>
                   Rs.{' '}
-                  {cartState.items.reduce((acc, item) => acc + item.price, 0)}
+                  {totalAmount}
                 </h1>
               </div>
               <button className="bg-red-300 w-full py-2 text-white">

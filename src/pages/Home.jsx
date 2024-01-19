@@ -5,11 +5,12 @@ import mensheroimg from '../images/baner-right-image-02.jpg'
 import kidsheroimg from '../images/baner-right-image-03.jpg'
 import Accesoriesheroimg from '../images/baner-right-image-04.jpg'
 import LatestProductWrapper from '../componets/LatestProductWrapper'
+import Contact from '../componets/Contact'
 
 const Home = () => {
   return (
     <div className="flex flex-col gap-2  p-4 ">
-      <div id="home" className="lg:flex gap-8   ">
+      <div id="home" className="lg:flex gap-8">
         <div className="flex-1  lg:w-50 pb-10  lg:pb-0  h-[300px]  lg:h-full relative">
           <img className="object-cover w-full  h-full" src={leftimage} alt="" />
           <div className="absolute top-0 left-0 flex text-white items-center justify-center w-full h-full">
@@ -68,8 +69,8 @@ const Home = () => {
       <LatestProductWrapper sectionName="Women's" id="women" />
       <LatestProductWrapper sectionName="Kid's" id="kids" />
 
-      <div id="contact " className="h-60">
-        <h1>Contact</h1>
+      <div id="contact " className="pt-24 pb-10">
+        <Contact/>
       </div>
     </div>
   )
