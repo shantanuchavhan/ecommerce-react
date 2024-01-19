@@ -8,7 +8,7 @@ import { useLocation } from 'react-router-dom'
 
 import { useCart } from '../context/CartContext'
 
-import { useNavigate } from 'react-router-dom'
+
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeLinkId, setActiveLinkId] = useState('home')
@@ -16,8 +16,7 @@ const Header = () => {
   const location = useLocation()
   const { cartState } = useCart()
   const [hoveredIndex, setHoveredIndex] = useState(null)
-  const [url, setUrl] = useState()
-  const navigate = useNavigate()
+ 
 
   useEffect(() => {
     const hash = location.hash
