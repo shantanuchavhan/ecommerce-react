@@ -5,8 +5,8 @@ import StarRatigSvg from '../componets/StarRatigSvg'
 import SkeletonProductDetail from '../componets/SkeletonProductDetail'
 import { useCart } from '../context/CartContext'
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 const ProductDetail = () => {
   const { id } = useParams()
   const { dispatch } = useCart()
@@ -34,7 +34,7 @@ const ProductDetail = () => {
     dispatch({ type: 'ADD_TO_CART', payload: product })
   }
 
-  const notify = () => toast.success('Added to cart');
+  const notify = () => toast.success('Added to cart')
 
   if (loading) {
     return <SkeletonProductDetail />
@@ -169,7 +169,6 @@ const ProductDetail = () => {
             </h1>
             <div className="text-gray-800 border border-gray-800 p-3 cursor-pointer">
               <h1
-            
                 onClick={() => {
                   addToCart({ ...productDetails, itemCount })
                   notify()
