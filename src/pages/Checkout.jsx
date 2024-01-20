@@ -89,7 +89,7 @@ const Checkout = () => {
                       (selectedItem) => selectedItem.id !== item.id
                     ) ? (
                       <div
-                        className="absolute left-[4px] overflow-hidden top-[4px] rounded-[2px] border border-gray-600 h-[12px] bg-white w-[12px] bg-red-400 flex items-center justify-center"
+                        className="absolute left-[4px] overflow-hidden top-[4px] rounded-[2px] border border-gray-600 h-[12px]  w-[12px] bg-red-400 flex items-center justify-center"
                         onClick={() => {
                           const updatedSelectedItems = selectedItem.filter(
                             (selected) => selected.id !== item.id
