@@ -20,7 +20,7 @@ const ProductDetail = () => {
     const fetchData = async () => {
       setLoading((old) => true)
       const responce = await fetch(
-        `http://127.0.0.1:8000/api/cloth_products/${id}/`
+        `https://clothx.onrender.com/api/cloth_products/${id}/`
       )
       const data = await responce.json()
       setProductDetails((old) => data)
