@@ -147,7 +147,7 @@ const Checkout = () => {
           </ul>
 
           <div
-            className={`w-full md:w-[40%]   pt-3   md:pt-0 ${window.innerWidth >= 768 ? '' : 'border-t'}  md:border-l flex flex-col  min-h-[50vh] justify-between  pl-4`}
+            className={`w-full md:w-[40%]   md:pt-3   md:pt-0 ${window.innerWidth >= 768 ? '' : 'border-t'}  md:border-l flex flex-col  min-h-[50vh] justify-between  md:pl-4`}
           >
             <div>
               <div className="flex flex-col gap-2">
