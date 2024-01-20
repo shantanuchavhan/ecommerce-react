@@ -13,14 +13,14 @@ const LatestProductWrapper = ({ sectionName, id }) => {
     const getData = async () => {
       if (id) {
         const responce = await fetch(
-          `http://127.0.0.1:8000/api/categories/${id}/`
+          `https://clothx.onrender.com/api/categories/${id}/`
         )
         const data = await responce.json()
         setCloths((old) => data)
         setLoading(false)
       } else {
         const responce = await fetch(
-          `http://127.0.0.1:8000/api/cloth-products/`
+          `https://clothx.onrender.com/api/cloth-products/`
         )
         const data = await responce.json()
         setCloths((old) => data)
