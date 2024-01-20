@@ -79,7 +79,7 @@ const LatestProductWrapper = ({ sectionName, id }) => {
           </svg>
         </div>
         {!loading ? (
-          <div className="flex overflow-x-scroll  h-[500px] w-full  gap-8">
+          <div className="flex overflow-x-scroll hide-scrollbar  h-[500px] w-full  gap-8">
             {cloths?.map((product, index) => (
               <div
                 key={product.id}
