@@ -8,6 +8,7 @@ const Register = () => {
     // Implement registration logic here
     console.log('Registering with:', email, password)
   }
+  
 
   return (
     <div className="flex items-center justify-center min-h-[70vh] w-[100vw]">

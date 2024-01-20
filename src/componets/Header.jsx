@@ -8,6 +8,7 @@ import { useLocation } from 'react-router-dom'
 
 import { useCart } from '../context/CartContext'
 
+
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeLinkId, setActiveLinkId] = useState('home')
@@ -15,6 +16,7 @@ const Header = () => {
   const location = useLocation()
   const { cartState } = useCart()
   const [hoveredIndex, setHoveredIndex] = useState(null)
+ 
 
   useEffect(() => {
     const hash = location.hash
@@ -210,7 +212,7 @@ const Header = () => {
               className="relative flex flex-col items-center "
               onMouseEnter={() => handleHover()}
               onMouseLeave={handleLeave}
-            >
+            > 
               <div>
                 <img
                   className="h-5 w-5  md:h-6 md:w-5 lg:w-6 lg:w-6 "
@@ -220,7 +222,10 @@ const Header = () => {
               </div>
 
               {hoveredIndex ? (
-                <div className="flex flex-col absolute top-7 border text-center text-sm z-30 bg-white shadow-lg">
+                <div
+                  className="flex flex-col absolute top-7 border text-center text-sm z-30 bg-white shadow-lg"
+                  
+                >
                   <Link className="p-2 border" to="/orders">
                     Orders
                   </Link>
