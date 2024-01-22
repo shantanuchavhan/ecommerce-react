@@ -8,8 +8,8 @@ const Footer = () => {
           <div className="py-6 md:py-0">shantanuchavhan002@gmail.com</div>
           <div className="flex flex-col gap-3 py-4  md:py-0">
             <h1 className="pb-1 font-bold">Shopping Categories</h1>
-            <h1>Men,s Shopping </h1>
-            <h1>women,s Shopping</h1>
+            <h1>Men's Shopping </h1>
+            <h1>women's Shopping</h1>
             <h1>kid's Shopping</h1>
           </div>
 

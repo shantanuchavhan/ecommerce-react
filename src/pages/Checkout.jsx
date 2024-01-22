@@ -34,7 +34,7 @@ const Checkout = () => {
     const itemTotal = itemPrice * item.itemCount
     return total + itemTotal
   }, 0)
-
+  
   console.log(selectedItem)
 
   return (
