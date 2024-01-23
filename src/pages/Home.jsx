@@ -17,7 +17,9 @@ const Home = () => {
   // Apply conditional styling if the browser is problematic
   if (isProblematicBrowser()) {
     // Add code to adjust styling for problematic browsers
-    alert("problematic-browser");
+    console.log("problematic-browser");
+  }else{
+    console.log("not problematic-browser");
   }
   return (
     <div className="flex flex-col gap-2  p-4 ">
