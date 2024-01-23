@@ -9,6 +9,16 @@ import Contact from '../componets/Contact'
 import { Link } from 'react-router-dom'
 
 const Home = () => {
+  const isProblematicBrowser = () => {
+    // Add conditions based on your investigation
+    return window.navigator.userAgent.includes("Windows 11") && window.navigator.userAgent.includes("Chrome");
+  };
+  
+  // Apply conditional styling if the browser is problematic
+  if (isProblematicBrowser()) {
+    // Add code to adjust styling for problematic browsers
+    alert("problematic-browser");
+  }
   return (
     <div className="flex flex-col gap-2  p-4 ">
       <div id="home" className="lg:flex gap-8">
